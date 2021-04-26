@@ -6,10 +6,17 @@ import UIKit
 
 typealias {{ module_info.name }}ModuleComponents = (
     view: UIViewController,
-    output: {{ module_info.name }}ModuleOutput
+    output: {{ module_info.name }}ModuleOutput,
+    input: {{ module_info.name }}ModuleInput
 )
 
-final class {{ module_info.name }}ModuleConfigurator {
+public final class {{ module_info.name }}ModuleConfigurator {
+
+    // MARK: - Initialization
+
+    public init() {}
+
+    // MARK: - Public Methods
 
     func configure() -> {{ module_info.name }}ModuleComponents {
         let view = UIViewController.instantiate(ofType: {{ module_info.name }}ViewController.self,
@@ -19,7 +26,7 @@ final class {{ module_info.name }}ModuleConfigurator {
         presenter.view = view
         view.output = presenter
 
-        return (view, presenter)
+        return (view, presenter, presenter)
     }
 
 }

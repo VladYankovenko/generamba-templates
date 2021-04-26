@@ -14,7 +14,7 @@ public final class {{ module_info.name }}ModuleTestConfigurator {
 
     public func configure() -> (UIViewController, [AnyObject]) {
         let (view, output) = {{ module_info.name }}ModuleConfigurator().configure()
-        return (view, [output])
+        return (view, [output, input])
     }
 
 }
